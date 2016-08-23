@@ -28,7 +28,7 @@ public class CameraNearOrFar : MonoBehaviour
             CurCamera.orthographicSize -= CameraSpeed*Time.deltaTime;
             EnemyTransform.position = new Vector3(EnemyTransform.position.x, EnemyTransform.position.y- CameraSpeed * Time.deltaTime, EnemyTransform.position.z);
             RoleTransform.position = new Vector3(RoleTransform.position.x, RoleTransform.position.y + CameraSpeed * Time.deltaTime, RoleTransform.position.z);
-
+            RoleTransform.localScale = Vector3.one*(CurCamera.orthographicSize/16.0f)*3;
 
         }
         else if(Input.GetMouseButton(1))
@@ -37,6 +37,8 @@ public class CameraNearOrFar : MonoBehaviour
             CurCamera.orthographicSize += CameraSpeed * Time.deltaTime;
             EnemyTransform.position = new Vector3(EnemyTransform.position.x, EnemyTransform.position.y + CameraSpeed * Time.deltaTime, EnemyTransform.position.z);
             RoleTransform.position = new Vector3(RoleTransform.position.x, RoleTransform.position.y - CameraSpeed * Time.deltaTime, RoleTransform.position.z);
+            RoleTransform.localScale = Vector3.one * (CurCamera.orthographicSize / 16.0f)*3;
+            Debug.Log(CurCamera.orthographicSize / 16.0f);
         }
 	}
 }
